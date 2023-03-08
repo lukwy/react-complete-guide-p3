@@ -27,7 +27,7 @@ const Login = (props) => {
   };
 
   const passwordChangeHandler = (event) => {
-    setEnteredPassword(event.target.value);
+    dispatchPassword({ type: "PASSWORD_INPUT", val: event.target.value });
 
     setFormIsValid(
       event.target.value.trim().length > 6 && enteredEmail.includes("@")
@@ -39,7 +39,7 @@ const Login = (props) => {
   };
 
   const validatePasswordHandler = () => {
-    setPasswordIsValid(enteredPassword.trim().length > 6);
+    dispatchPassword({ type: "PASSWORD_BLUR" });
   };
 
   const submitHandler = (event) => {
